@@ -1,0 +1,133 @@
+/* Add animations for path transitions */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .fade-in {
+    animation: fadeIn 0.3s ease-out forwards;
+  }
+  
+  /* Path visualization animation */
+  @keyframes slideIn {
+    from { transform: translateX(-20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  
+  .bg-accent-3 span {
+    animation: slideIn 0.3s ease-out forwards;
+  }
+  
+  /* Wiki content styles */
+  .wiki-content {
+    font-family: var(--font-sans);
+    line-height: 1.6;
+  }
+  
+  .wiki-content h1, 
+  .wiki-content h2, 
+  .wiki-content h3, 
+  .wiki-content h4 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    font-weight: 600;
+    color: var(--color-neutral-12);
+  }
+  
+  .wiki-content h1 { font-size: 1.75rem; }
+  .wiki-content h2 { font-size: 1.5rem; }
+  .wiki-content h3 { font-size: 1.25rem; }
+  .wiki-content h4 { font-size: 1.1rem; }
+  
+  .wiki-content p {
+    margin-bottom: 1em;
+    color: var(--color-neutral-12);
+  }
+  
+  .wiki-content ul, 
+  .wiki-content ol {
+    margin-bottom: 1em;
+    padding-left: 2em;
+  }
+  
+  .wiki-content li {
+    margin-bottom: 0.5em;
+  }
+  
+  .wiki-content table {
+    margin: 1em 0;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .wiki-content th,
+  .wiki-content td {
+    padding: 0.5em;
+    border: 1px solid var(--color-neutral-6);
+  }
+  
+  .wiki-content th {
+    background-color: var(--color-neutral-3);
+  }
+  
+  .wiki-content img {
+    max-width: 100%;
+    height: auto;
+    margin: 1em 0;
+  }
+  
+  .wiki-content a[data-wiki-link] {
+    color: var(--color-accent-11);
+    text-decoration: none;
+    position: relative;
+    transition: all 0.2s ease;
+  }
+  
+  .wiki-content a[data-wiki-link]:hover {
+    color: var(--color-accent-9);
+  }
+  
+  .wiki-content a[data-wiki-link]::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--color-accent-9);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+  }
+  
+  .wiki-content a[data-wiki-link]:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  
+  /* Remove styling from non-wiki links */
+  .wiki-content a:not([data-wiki-link]) {
+    color: inherit;
+    text-decoration: none;
+    cursor: default;
+  }
+  
+  /* Improve infobox styling */
+  .wiki-content .infobox {
+    float: right;
+    margin: 0 0 1em 1em;
+    padding: 1em;
+    background: var(--color-neutral-2);
+    border: 1px solid var(--color-neutral-6);
+    border-radius: 0.5em;
+    max-width: 300px;
+  }
+  
+  @media (max-width: 640px) {
+    .wiki-content .infobox {
+      float: none;
+      margin: 1em 0;
+      max-width: 100%;
+    }
+  }
+  
